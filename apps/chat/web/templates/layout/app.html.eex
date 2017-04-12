@@ -18,13 +18,17 @@
       <div class="nav-wrapper container">
         <a href="/" class="brand-logo">Bot Chat</a>
         <ul class="right">
-          <%= if @conn.assigns[:user] do %>
+          <%= if @current_user do %>
             <li>
-              <a href="#">Sign Out</a>
+              <%= link @current_user.username, to: user_path(@conn, :show, @current_user) %>
+            </li>
+            <li>
+              <%= link "Log out", to: session_path(@conn, :delete, @current_user),
+                                  method: "delete" %>
             </li>
           <% else %>
             <li>
-              <a href="#">Sign In</a>
+              <%= link "Sign In", to: session_path(@conn, :new) %>
             </li>
           <% end %>
         </ul>

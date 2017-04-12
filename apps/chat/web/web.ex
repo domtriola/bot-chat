@@ -36,6 +36,8 @@ defmodule Chat.Web do
 
       import Chat.Router.Helpers
       import Chat.Gettext
+
+      import Chat.Auth, only: [authenticate_user: 2]
     end
   end
 
