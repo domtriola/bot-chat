@@ -7,21 +7,31 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Chat!</title>
+    <title>Bot Chat</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
+    <nav>
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo">Bot Chat</a>
+        <ul class="right">
+          <%= if @conn.assigns[:user] do %>
+            <li>
+              <a href="#">Sign Out</a>
+            </li>
+          <% else %>
+            <li>
+              <a href="#">Sign In</a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
 
+    <div class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
