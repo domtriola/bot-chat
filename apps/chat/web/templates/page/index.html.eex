@@ -1,15 +1,37 @@
-<div class="container">
-  <div class="row">
-    <aside class="col s3">
-      <ul>
-        <li>one</li>
-        <li>two</li>
-        <li>three</li>
-      </ul>
-    </aside>
+<div class="chat-container">
+  <div id="message-container">
+    <div class="message">
+      <div class="message-info">Dom: </div>
+      <div class="message-body">
+        First!!!
+      </div>
+    </div>
+    <div class="message">
+      <div class="message-info">Justine: </div>
+      <div class="message-body">
+        How articulate...
+      </div>
+    </div>
+    <div class="message">
+      <div class="message-info">Dom: </div>
+      <div class="message-body">
+        Blah, blah, blah
+      </div>
+    </div>
+    <div class="message">
+      <div class="message-info">Justine: </div>
+      <div class="message-body">
+        Lorem nonesense
+      </div>
+    </div>
+  </div>
 
-    <section class="col s9">
-      content
-    </section>
+  <div id="message-input">
+    <input type="text"></input>
+    <button class="mdl-button mdl-js-button mdl-button--raised
+                   mdl-js-ripple-effect mdl-button--accent">
+      Send
+    </button>
+  </div>
   </div>
 </div>

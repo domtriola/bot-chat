@@ -1,1 +1,59 @@
 /* This file is for your main application css. */
+
+/* General
+********************/
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+main.mdl-layout__content {
+  display: flex;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Chat Container
+********************/
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#message-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.message {
+  padding: 5px 10px;
+}
+
+.message > div {
+  display: inline-block;
+}
+
+#message-input {
+  display: flex;
+  bottom: 0;
+  width: 100%;
+}
+
+#message-input input {
+  flex: 1;
+}
+
+#message-input button {
+  width: 100px;
+}
