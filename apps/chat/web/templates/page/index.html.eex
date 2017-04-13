@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <aside class="col s3">
+      <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+      </ul>
+    </aside>
+
+    <section class="col s9">
+      content
+    </section>
+  </div>
+</div>
