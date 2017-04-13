@@ -28,7 +28,10 @@
             </li>
           <% else %>
             <li>
-              <%= link "Sign In", to: session_path(@conn, :new) %>
+              <%= link "Log In", to: session_path(@conn, :new) %>
+            </li>
+            <li>
+              <%= link "Sign Up", to: user_path(@conn, :new) %>
             </li>
           <% end %>
         </ul>
