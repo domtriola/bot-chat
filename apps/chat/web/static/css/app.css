@@ -19,6 +19,7 @@ main.mdl-layout__content {
   display: flex;
   flex-direction: column;
   flex: 1;
+  padding: 40px;
 }
 
 /* Chat Container
@@ -30,10 +31,10 @@ main.mdl-layout__content {
 }
 
 #message-container {
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  overflow-y: auto;
 }
 
 .message {

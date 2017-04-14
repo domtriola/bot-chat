@@ -45,6 +45,7 @@ defmodule Chat.Auth do
 
   def logout(conn) do
     configure_session(conn, drop: true)
+    |> redirect(to: Helpers.session_path(conn, :new))
   end
 
   def authenticate_user(conn, _params) do
@@ -53,7 +54,7 @@ defmodule Chat.Auth do
     else
       conn
       |> put_flash(:error, "You must be logged in to access that page")
-      |> redirect(to: Helpers.page_path(conn, :index))
+      |> redirect(to: Helpers.session_path(conn, :new))
       |> halt()
     end
   end

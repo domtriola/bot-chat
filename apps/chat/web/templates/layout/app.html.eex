@@ -54,9 +54,6 @@
       </div>
 
       <main role="main" class="mdl-layout__content">
-        <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-        <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
         <div class="page-content">
           <%= render @view_module, @view_template, assigns %>
         </div>
