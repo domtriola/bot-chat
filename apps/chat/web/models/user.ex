@@ -5,6 +5,7 @@ defmodule Chat.User do
     field :username, :string
     field :password, :string, virtual: true
     field :password_digest, :string
+    has_many :messages, Chat.Message
 
     timestamps()
   end

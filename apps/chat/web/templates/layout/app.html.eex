@@ -47,7 +47,9 @@
         <span class="mdl-layout-title">Bot Chat</span>
         <nav class="mdl-navigation">
           <%= for convo <- @convos do %>
-            <a class="mdl-navigation__link"><%= convo.title %></a>
+            <%= link convo.title,
+                     to: convo_path(@conn, :show, convo),
+                     class: "mdl-navigation__link" %>
           <% end %>
         </nav>
       </div>

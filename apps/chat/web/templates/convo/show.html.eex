@@ -1,13 +1,22 @@
-<h2>Show convo</h2>
+<div class="chat-container">
+  <div id="message-container">
+    <%= for msg <- @messages do %>
+      <div class="message">
+        <div class="message-info">
+          <%= msg.user.username %>:
+        </div>
+        <div class="message-body">
+          <%= msg.body %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-<ul>
-
-  <li>
-    <strong>Title:</strong>
-    <%= @convo.title %>
-  </li>
-
-</ul>
-
-<%= link "Edit", to: convo_path(@conn, :edit, @convo) %>
-<%= link "Back", to: convo_path(@conn, :index) %>
+  <div id="message-input">
+    <input type="text"></input>
+    <button class="mdl-button mdl-js-button mdl-button--raised
+                   mdl-js-ripple-effect mdl-button--accent">
+      Send
+    </button>
+  </div>
+</div>
