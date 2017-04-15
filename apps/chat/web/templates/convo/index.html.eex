@@ -1,0 +1,26 @@
+<h2>Listing convos</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for convo <- @convos do %>
+    <tr>
+      <td><%= convo.title %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: convo_path(@conn, :show, convo), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: convo_path(@conn, :edit, convo), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: convo_path(@conn, :delete, convo), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New convo", to: convo_path(@conn, :new) %>

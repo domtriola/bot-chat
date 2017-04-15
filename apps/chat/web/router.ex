@@ -8,6 +8,7 @@ defmodule Chat.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug Chat.Auth, repo: Chat.Repo
+    plug Chat.ConvoPlug, repo: Chat.Repo
   end
 
   pipeline :api do
@@ -20,6 +21,7 @@ defmodule Chat.Router do
     get "/", PageController, :index
     resources "/users", UserController, only: [:index, :show, :new, :create]
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+    resources "/convos", ConvoController
   end
 
   # Other scopes may use custom stacks.

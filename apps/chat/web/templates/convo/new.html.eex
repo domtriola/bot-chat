@@ -1,0 +1,6 @@
+<h2>New convo</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: convo_path(@conn, :create) %>
+
+<%= link "Back", to: convo_path(@conn, :index) %>

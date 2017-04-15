@@ -9,3 +9,14 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Chat.Repo
+alias Chat.Convo
+alias Chat.User
+
+Repo.insert!(%Convo{title: "General"})
+Repo.insert!(%Convo{title: "Shakespeare"})
+Repo.insert!(%Convo{title: "Chatmundo"})
+
+Repo.insert!(%User{username: "Shakespeare"})
+Repo.insert!(%User{username: "Chatmundo"})

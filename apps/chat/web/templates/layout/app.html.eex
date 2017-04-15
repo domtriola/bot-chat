@@ -46,10 +46,9 @@
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Bot Chat</span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Channel One</a>
-          <a class="mdl-navigation__link" href="">Channel Two</a>
-          <a class="mdl-navigation__link" href="">Channel Three</a>
-          <a class="mdl-navigation__link" href="">Channel Four</a>
+          <%= for convo <- @convos do %>
+            <a class="mdl-navigation__link"><%= convo.title %></a>
+          <% end %>
         </nav>
       </div>
 
