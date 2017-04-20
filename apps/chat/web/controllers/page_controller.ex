@@ -4,6 +4,7 @@ defmodule Chat.PageController do
   plug :authenticate_user when action in [:index]
 
   def index(conn, _params) do
-    render conn, "index.html"
+    general = Chat.Repo.get_by(Chat.Convo, title: "General")
+    redirect conn, to: "/convos/#{general.id}"
   end
 end
