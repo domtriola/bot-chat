@@ -27,18 +27,26 @@ const Convo = {
       .receive("error", resp => { console.log("Unable to join", resp); });
 
     msgSubmit.addEventListener("click", (e) => {
-      let msg = { body: msgText.value };
+      this.submitMsg(channel, msgText);
+    });
 
-      channel.push("new_message", msg)
-        .receive("error", err => console.log(err));
-
-      msgText.value = "";
+    msgInput.addEventListener("keypress", (e) => {
+      if (e.keyCode === 13) this.submitMsg(channel, msgText);
     });
 
     channel.on("new_message", msg => {
       channel.params.last_seen_id = msg.id;
       this.renderMessage(msgContainer, msg);
     });
+  },
+
+  submitMsg(channel, msgText) {
+    let msg = { body: msgText.value };
+
+    channel.push("new_message", msg)
+      .receive("error", err => console.log(err));
+
+    msgText.value = "";
   },
 
   renderMessages(msgContainer, messages) {
