@@ -1,1 +1,1 @@
-web: MIX_ENV=prod mix phoenix.server
+web: cd apps/chat && MIX_ENV=prod mix phoenix.server
