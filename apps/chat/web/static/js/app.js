@@ -19,3 +19,6 @@ import "phoenix_html";
 // paths "./socket" or full ones "web/static/js/socket".
 
 import socket from "./socket";
+import Convo from "./convo.js";
+
+Convo.init(socket, document.getElementById("convo"));

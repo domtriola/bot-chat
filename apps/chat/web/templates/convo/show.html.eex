@@ -1,16 +1,5 @@
-<div class="chat-container">
-  <div id="message-container">
-    <%= for msg <- @messages do %>
-      <div class="message">
-        <div class="message-info">
-          <%= msg.user.username %>:
-        </div>
-        <div class="message-body">
-          <%= msg.body %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+<div id="convo" data-id="<%= @convo.id %>" class="chat-container">
+  <div id="message-container"></div>
 
   <div id="message-input">
     <input type="text"></input>

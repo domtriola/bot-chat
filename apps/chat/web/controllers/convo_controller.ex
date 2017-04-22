@@ -28,14 +28,8 @@ defmodule Chat.ConvoController do
 
   def show(conn, %{"id" => id}) do
     convo = Repo.get!(Convo, id)
-    messages = Repo.all(
-      from msg in assoc(convo, :messages),
-          order_by: [asc: msg.inserted_at],
-          limit: 200,
-          preload: [:user]
-      )
 
-    render(conn, "show.html", convo: convo, messages: messages)
+    render(conn, "show.html", convo: convo)
   end
 
   def edit(conn, %{"id" => id}) do
