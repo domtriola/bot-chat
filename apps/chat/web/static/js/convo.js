@@ -25,6 +25,19 @@ const Convo = {
         this.renderMessages(msgContainer, messages);
       })
       .receive("error", resp => { console.log("Unable to join", resp); });
+
+    msgSubmit.addEventListener("click", (e) => {
+      let msg = { body: msgText.value };
+
+      channel.push("new_message", msg)
+        .receive("error", err => console.log(err));
+
+      msgText.value = "";
+    });
+
+    channel.on("new_message", msg => {
+      this.renderMessage(msgContainer, msg);
+    });
   },
 
   renderMessages(msgContainer, messages) {
@@ -37,7 +50,7 @@ const Convo = {
     div.innerHTML = `
       <div class="message">
         <div class="message-info">
-          ${Util.esc(msg.user)}
+          ${Util.esc(msg.user)}:
         </div>
         <div class="message-body">
           ${Util.esc(msg.body)}
@@ -46,8 +59,7 @@ const Convo = {
     `;
 
     msgContainer.appendChild(div);
-    // TODO: test this
-    // msgContainer.scrollTop = msgContainer.srollHeight;
+    msgContainer.scrollTop = msgContainer.scrollHeight;
   }
 };
 
