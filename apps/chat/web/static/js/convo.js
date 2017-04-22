@@ -36,6 +36,7 @@ const Convo = {
     });
 
     channel.on("new_message", msg => {
+      channel.params.last_seen_id = msg.id;
       this.renderMessage(msgContainer, msg);
     });
   },

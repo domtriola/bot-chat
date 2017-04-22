@@ -6,10 +6,13 @@ defmodule Chat.ConvoChannel do
   alias Chat.MessageView
 
   def join("convos:" <> convo_id, params, socket) do
+    last_seen_id = params["last_seen_id"] || 0
     convo_id = String.to_integer(convo_id)
+
     convo = Repo.get!(Convo, convo_id)
     messages = Repo.all(
       from msg in assoc(convo, :messages),
+          where: msg.id > ^last_seen_id,
           order_by: [asc: msg.inserted_at],
           limit: 200,
           preload: [:user]
