@@ -1,18 +1,13 @@
 defmodule Bots do
-  @moduledoc """
-  Documentation for Bots.
-  """
+  @bots %{"CleverBot" => Bots.CleverBot}
 
-  @doc """
-  Hello world.
+  defmodule Result do
+    defstruct text: nil, bot: nil
+  end
 
-  ## Examples
+  def query_bot(msg, opts \\ []) do
+    bot = opts[:bot] || @bots["CleverBot"]
 
-      iex> Bots.hello
-      :world
-
-  """
-  def hello do
-    :world
+    bot.query(msg)
   end
 end

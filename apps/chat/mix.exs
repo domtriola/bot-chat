@@ -22,8 +22,8 @@ defmodule Chat.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Chat, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :comeonin]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger,
+                    :gettext, :phoenix_ecto, :postgrex, :comeonin, :bots]]
   end
 
   # Specifies which paths to compile per environment.
@@ -42,7 +42,9 @@ defmodule Chat.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:comeonin, "~> 3.0"}]
+     {:comeonin, "~> 3.0"},
+     {:poison, "~> 2.0"},
+     {:bots, in_umbrella: true}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
