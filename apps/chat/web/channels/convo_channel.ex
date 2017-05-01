@@ -39,6 +39,7 @@ defmodule Chat.ConvoChannel do
     case Repo.insert(changeset) do
       {:ok, msg} ->
         broadcast_message(socket, msg)
+        message_bot(msg, socket)
         {:reply, :ok, socket}
       {:error, changeset} ->
         {:reply, {:error, %{errors: changeset}}, socket}
@@ -55,6 +56,17 @@ defmodule Chat.ConvoChannel do
   end
 
   defp message_bot(message, socket) do
+    result = Bots.query_bot("hello")
+    attrs = %{body: result.text}
 
+    changeset =
+      Repo.get_by!(Chat.User, username: result.bot)
+      |> build_assoc(:messages, convo_id: message.convo_id)
+      |> Chat.Message.changeset(attrs)
+
+    case Repo.insert(changeset) do
+      {:ok, msg} -> broadcast_message(socket, msg)
+      {:error, _changeset} -> :ignore
+    end
   end
 end

@@ -15,8 +15,6 @@ alias Chat.Convo
 alias Chat.User
 
 Repo.insert!(%Convo{title: "General"})
-Repo.insert!(%Convo{title: "Shakespeare"})
-Repo.insert!(%Convo{title: "Chatmundo"})
+Repo.insert!(%Convo{title: "CleverBot"})
 
-Repo.insert!(%User{username: "Shakespeare"})
-Repo.insert!(%User{username: "Chatmundo"})
+Repo.insert!(%User{username: "CleverBot"})
