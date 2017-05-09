@@ -22,7 +22,12 @@ defmodule Chat.ConvoChannel do
                                                 MessageView,
                                                 "message.json")}
 
-    {:ok, resp, assign(socket, :convo_id, convo_id)}
+    socket =
+      socket
+      |> assign(:cs, "")
+      |> assign(:convo_id, convo_id)
+
+    {:ok, resp, socket}
   end
 
   def handle_in(event, params, socket) do
@@ -39,7 +44,7 @@ defmodule Chat.ConvoChannel do
     case Repo.insert(changeset) do
       {:ok, msg} ->
         broadcast_message(socket, msg)
-        message_bot(msg, socket)
+        socket = message_bot(msg, socket)
         {:reply, :ok, socket}
       {:error, changeset} ->
         {:reply, {:error, %{errors: changeset}}, socket}
@@ -56,8 +61,8 @@ defmodule Chat.ConvoChannel do
   end
 
   defp message_bot(message, socket) do
-    result = Bots.query_bot("hello")
-    attrs = %{body: result.text}
+    result = Bots.query_bot(message.body, socket.assigns.cs)
+    attrs = %{body: result.text, cs: result.cs}
 
     changeset =
       Repo.get_by!(Chat.User, username: result.bot)
@@ -68,5 +73,7 @@ defmodule Chat.ConvoChannel do
       {:ok, msg} -> broadcast_message(socket, msg)
       {:error, _changeset} -> :ignore
     end
+
+    assign(socket, :cs, result.cs)
   end
 end

@@ -3,6 +3,7 @@ defmodule Chat.Message do
 
   schema "messages" do
     field :body, :string
+    field :cs, :string
     belongs_to :user, Chat.User
     belongs_to :convo, Chat.Convo
 
@@ -14,7 +15,7 @@ defmodule Chat.Message do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:body])
+    |> cast(params, [:body, :cs])
     |> validate_required([:body])
   end
 end

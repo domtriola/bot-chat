@@ -1,13 +1,14 @@
 defmodule Bots.CleverBot do
   alias Bots.Result
 
-  def query(msg) do
+  def query(msg, cs) do
     {:ok, {_status, _headers, body}} =
       :httpc.request(
         String.to_char_list(
           "http://www.cleverbot.com/getreply" <>
           "?key=#{api_key()}" <>
-          "&input=#{msg}")
+          "&input=#{msg}" <>
+          "&cs=#{cs}")
       )
 
     body
@@ -26,8 +27,8 @@ defmodule Bots.CleverBot do
     {output, cs, conversation_id}
   end
 
-  defp format_result({output, _cs, _conversation_id}) do
-    %Result{text: output, bot: "CleverBot"}
+  defp format_result({output, cs, _conversation_id}) do
+    %Result{text: output, bot: "CleverBot", cs: cs}
   end
 
   defp api_key, do: Application.get_env(:bots, :cleverbot)[:api_key]
