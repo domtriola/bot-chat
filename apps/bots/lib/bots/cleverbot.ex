@@ -8,7 +8,8 @@ defmodule Bots.CleverBot do
           "http://www.cleverbot.com/getreply" <>
           "?key=#{api_key()}" <>
           "&input=#{msg}" <>
-          "&cs=#{cs}")
+          "&cs=#{cs}" <>
+          "&conversation_id=WXEIO5JKOH")
       )
 
     body
@@ -23,6 +24,8 @@ defmodule Bots.CleverBot do
       "cs" => cs,
       "conversation_id" => conversation_id
     } = reply
+
+    IO.inspect(conversation_id)
 
     {output, cs, conversation_id}
   end
