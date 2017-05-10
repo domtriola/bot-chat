@@ -84,6 +84,7 @@ span.mdl-layout-title {
 
 .message-info {
   font-weight: bold;
+  color: rgb(0, 150, 136);
 }
 
 .message-body {
