@@ -22,12 +22,27 @@ main.mdl-layout__content {
   padding: 40px;
 }
 
+.mdl-textfield.mdl-textfield--floating-label {
+  display: block;
+}
+
 /* Navigation
 ********************/
 
 .mdl-navigation h5 {
   padding: 0 40px;
   font-size: 18px;
+}
+
+/* Session Pages
+********************/
+
+.session-form {
+  text-align: center;
+}
+
+.session-form .mdl-textfield {
+  margin: 0 auto;
 }
 
 /* Chat Container

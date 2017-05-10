@@ -1,6 +1,7 @@
-<h1>Login</h1>
-<p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-<%= form_for @conn, session_path(@conn, :create), [as: :session], fn f -> %>
+<div class="session-form">
+  <h1>Login</h1>
+  <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+  <%= form_for @conn, session_path(@conn, :create), [as: :session], fn f -> %>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <%= label f, :username, class: "mdl-textfield__label" %>
     <%= text_input f, :username, class: "mdl-textfield__input" %>
@@ -14,4 +15,5 @@
   </div>
 
   <%= submit "Log in", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
-<% end %>
+  <% end %>
+</div>
