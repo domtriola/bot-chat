@@ -15,6 +15,14 @@ main.mdl-layout__content {
   display: flex;
 }
 
+.mdl-layout h1,
+.mdl-layout h2,
+.mdl-layout h3,
+.mdl-layout h4 {
+  font-family: 'Berkshire Swash', cursive;
+}
+
+
 .page-content {
   display: flex;
   flex-direction: column;
@@ -28,6 +36,10 @@ main.mdl-layout__content {
 
 /* Navigation
 ********************/
+
+span.mdl-layout-title {
+  font-family: 'Berkshire Swash', cursive;
+}
 
 .mdl-navigation h5 {
   padding: 0 40px;
