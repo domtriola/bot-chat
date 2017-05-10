@@ -9,8 +9,6 @@
 
     <title>Bot Chat</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-deep_orange.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
@@ -24,9 +22,9 @@
           <div class="mdl-layout-spacer"></div>
           <nav class="mdl-navigation">
             <%= if @current_user do %>
-              <%= link @current_user.username,
-                       to: user_path(@conn, :show, @current_user),
-                       class: "mdl-navigation__link" %>
+              <p class="mdl-navigation__link">
+                <%= @current_user.username %>
+              </p>
               <%= link "Log out",
                        to: session_path(@conn, :delete, @current_user),
                        method: "delete",
@@ -46,6 +44,7 @@
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Bot Chat</span>
         <nav class="mdl-navigation">
+          <h5>Conversations</h5>
           <%= for convo <- @convos do %>
             <%= link convo.title,
                      to: convo_path(@conn, :show, convo),

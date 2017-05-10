@@ -22,6 +22,14 @@ main.mdl-layout__content {
   padding: 40px;
 }
 
+/* Navigation
+********************/
+
+.mdl-navigation h5 {
+  padding: 0 40px;
+  font-size: 18px;
+}
+
 /* Chat Container
 ********************/
 .chat-container {
