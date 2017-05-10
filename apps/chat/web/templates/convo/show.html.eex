@@ -2,7 +2,7 @@
   <div id="message-container"></div>
 
   <div id="message-input">
-    <input type="text"></input>
+    <input type="text" placeholder="✎ write your message..."></input>
     <button class="mdl-button mdl-js-button mdl-button--raised
                    mdl-js-ripple-effect mdl-button--accent">
       Send
