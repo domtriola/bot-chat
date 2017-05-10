@@ -26,7 +26,7 @@ defmodule Chat.UserController do
         conn
         |> Chat.Auth.login(user)
         |> put_flash(:info, "#{user.username} created!")
-        |> redirect(to: user_path(conn, :index))
+        |> redirect(to: page_path(conn, :index))
       {:error, changeset} ->
         render conn, "new.html", changeset: changeset
     end

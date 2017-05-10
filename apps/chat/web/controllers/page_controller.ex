@@ -4,7 +4,7 @@ defmodule Chat.PageController do
   plug :authenticate_user when action in [:index]
 
   def index(conn, _params) do
-    general = Chat.Repo.get_by(Chat.Convo, title: "General")
-    redirect conn, to: "/convos/#{general.id}"
+    clever = Chat.Repo.get_by(Chat.Convo, title: "CleverBot")
+    redirect conn, to: "/convos/#{clever.id}"
   end
 end
