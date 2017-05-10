@@ -22,3 +22,43 @@ import socket from "./socket";
 import Convo from "./convo.js";
 
 Convo.init(socket, document.getElementById("convo"));
+
+// Guest Login
+const guestLogin = document.getElementById("guest-login");
+if (guestLogin) {
+  const login = document.getElementById("session-login");
+  const username = document.getElementById("session_username");
+  const password = document.getElementById("session_password");
+  const guestName = "CleverHuman";
+  const guestPass = "cleverP@$$w0rd";
+
+  guestLogin.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    let time = 0;
+    const fields = { username: username, password: password };
+    const guestInfo = { username: guestName, password: guestPass };
+
+    const setNextChar = (field, i) => {
+      time += 50;
+
+      setTimeout(() => {
+        let label = fields[field].parentElement;
+        if (label.className.indexOf("is-focused") === -1)
+          label.className += " is-focused";
+
+        let currentVal = fields[field].value;
+        fields[field].value = currentVal + guestInfo[field][i];
+
+        if (field === "password" && guestInfo[field][i] === "d")
+          login.click();
+
+      }, time);
+    };
+
+    Object.keys(fields).forEach(field => {
+      for (let i = 0; i < guestInfo[field].length; i++)
+        setNextChar(field, i);
+    });
+  });
+}

@@ -14,6 +14,9 @@
     <%= error_tag f, :password %>
   </div>
 
-  <%= submit "Log in", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+  <%= submit "Log in", id: "session-login", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+  <button id="guest-login" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+    Guest
+  </button>
   <% end %>
 </div>

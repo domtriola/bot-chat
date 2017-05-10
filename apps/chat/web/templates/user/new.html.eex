@@ -20,6 +20,6 @@
     <%= error_tag f, :password %>
   </div>
 
-  <%= submit "Log in", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+  <%= submit "Sign Up", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
   <% end %>
 </div>
