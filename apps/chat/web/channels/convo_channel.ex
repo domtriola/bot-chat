@@ -61,6 +61,16 @@ defmodule Chat.ConvoChannel do
   end
 
   defp message_bot(message, socket) do
+    convo = Repo.get(Convo, socket.assigns.convo_id)
+
+    case convo.title do
+      "CleverBot" ->
+        message(message, socket)
+      _else ->
+        socket
+    end
+  end
+  defp message(message, socket) do
     result = Bots.query_bot(message.body, socket.assigns.cs)
     attrs = %{body: result.text, cs: result.cs}
 
