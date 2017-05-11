@@ -23,4 +23,4 @@ erl_crash.dump
 # variables.
 /config/*.secret.exs
 
-/web/static/assets/images/avatars/*
+/web/static/assets/images/avatars/*.png
