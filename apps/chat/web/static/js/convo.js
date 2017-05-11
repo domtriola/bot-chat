@@ -55,11 +55,16 @@ const Convo = {
 
   renderMessage(msgContainer, msg) {
     let div = document.createElement("div");
+    let username = Util.esc(msg.user);
+    let img = `<img src="/images/avatars/${username}"`;
 
     div.innerHTML = `
       <div class="message">
+        <div class="avatar">
+          <img src="/images/avatars/${username}.png" />
+        </div>
         <div class="message-info">
-          ${Util.esc(msg.user)}:
+          ${username}
         </div>
         <div class="message-body">
           ${Util.esc(msg.body)}

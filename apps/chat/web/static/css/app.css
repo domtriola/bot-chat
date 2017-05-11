@@ -76,10 +76,18 @@ span.mdl-layout-title {
 
 .message {
   padding: 5px 10px;
+  vertical-align: top;
+  padding: 5px 0;
 }
 
 .message > div {
-  display: inline-block;
+  display: block;
+}
+
+.avatar img {
+  width: 40px;
+  float: left;
+  margin-right: 10px;
 }
 
 .message-info {
