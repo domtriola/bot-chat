@@ -11,7 +11,7 @@ defmodule Identicon do
 
   def write_image(text) do
     pix = Identicon.process(text)
-    File.write("apps/#{text}.png", pix)
+    File.write("apps/chat/web/static/assets/images/avatars/#{text}.png", pix)
   end
 
   defp gen_hash(%Image{text: text} = image) do
