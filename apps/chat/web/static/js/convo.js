@@ -61,7 +61,7 @@ const Convo = {
     div.innerHTML = `
       <div class="message">
         <div class="avatar">
-          <img src="/images/avatars/${username}.png" />
+          <img src="https://s3-us-west-1.amazonaws.com/bot-chat/avatars/${username}.png" />
         </div>
         <div class="message-info">
           ${username}

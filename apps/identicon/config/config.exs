@@ -2,6 +2,20 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
+config :arc,
+  storage: Arc.Storage.S3,
+  bucket: "bot-chat"
+
+config :ex_aws, :retries,
+  max_attempts: 10,
+  base_backoff_in_ms: 10,
+  max_backoff_in_ms: 10_000
+
+config :ex_aws, :s3,
+  scheme: "https://",
+  host: "s3-us-west-1.amazonaws.com",
+  region: "us-west-1"
+
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,
@@ -26,5 +40,5 @@ use Mix.Config
 # by uncommenting the line below and defining dev.exs, test.exs and such.
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last).
-#
-#     import_config "#{Mix.env}.exs"
+
+import_config "#{Mix.env}.exs"

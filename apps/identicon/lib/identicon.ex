@@ -1,5 +1,6 @@
 defmodule Identicon do
   alias Identicon.Image
+  alias Identicon.Avatar
 
   def process(text) do
     %Image{text: text}
@@ -7,11 +8,11 @@ defmodule Identicon do
     |> gen_color()
     |> gen_grid()
     |> gen_pix()
+    |> write_image(text)
   end
 
-  def write_image(text) do
-    pix = Identicon.process(text)
-    File.write("apps/chat/web/static/assets/images/avatars/#{text}.png", pix)
+  def write_image(pix, text) do
+    Avatar.store(%{filename: "#{text}.png", binary: pix})
   end
 
   defp gen_hash(%Image{text: text} = image) do

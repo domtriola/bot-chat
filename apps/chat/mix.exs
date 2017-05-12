@@ -45,7 +45,6 @@ defmodule Chat.Mixfile do
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 3.0"},
      {:poison, "~> 2.0"},
-     {:arc, "~> 0.8.0"},
      {:bots, in_umbrella: true},
      {:identicon, in_umbrella: true}]
   end

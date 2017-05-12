@@ -23,8 +23,7 @@ defmodule Chat.UserController do
     changeset = User.registration_changeset(%User{}, user_params)
     case Repo.insert(changeset) do
       {:ok, user} ->
-        bin = Identicon.process(user.username)
-        Chat.Avatar.store(%{filename: "#{user.username}.png", binary: bin})
+        Identicon.process(user.username)
 
         conn
         |> Chat.Auth.login(user)
