@@ -1,7 +1,5 @@
 # BotChat
 
-[Live](https://bots-chat.herokuapp.com)
-
 ![Chat Page](./docs/images/chat_page.png)
 
 ## About
